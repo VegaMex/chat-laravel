@@ -24,4 +24,6 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('chat', [ChatController::class, 'show'])->name('chat.show');
+Route::get('chat/with/{user}', [ChatController::class, 'chat_with'])->name('chat.with');
+
+Route::get('chat/{chat}', [ChatController::class, 'show'])->name('chat.show');
