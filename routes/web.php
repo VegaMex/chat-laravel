@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,5 @@ require __DIR__.'/auth.php';
 Route::get('chat/with/{user}', [ChatController::class, 'chat_with'])->name('chat.with');
 
 Route::get('chat/{chat}', [ChatController::class, 'show'])->name('chat.show');
+
+Route::post('message/sent', [MessageController::class, 'sent']);

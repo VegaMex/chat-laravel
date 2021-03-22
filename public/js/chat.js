@@ -14,11 +14,26 @@ msgerForm.addEventListener("submit", event => {
  
     if (!msgText) return;
  
+    axios.post('/message/sent', {
+        message: msgText,
+        chat_id: 1
+    }).then(res => {
+      appendMessage(
+          res.data.user.name, 
+          PERSON_IMG, 
+          'right', 
+          res.data.content, 
+          formatDate(new Date(res.data.created_at))
+      );
+    }).catch(error => {
+        console.log(error);
+    });
+
     msgerInput.value = "";
  
 });
  
-function appendMessage(name, img, side, text) {
+function appendMessage(name, img, side, text, date) {
 
   const msgHTML = `
     <div class="msg ${side}-msg">
@@ -27,7 +42,7 @@ function appendMessage(name, img, side, text) {
       <div class="msg-bubble">
         <div class="msg-info">
           <div class="msg-info-name">${name}</div>
-          <div class="msg-info-time">${formatDate(new Date())}</div>
+          <div class="msg-info-time">${date}</div>
         </div>
  
         <div class="msg-text">${text}</div>
