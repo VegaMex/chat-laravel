@@ -30,7 +30,7 @@ class ChatController extends Controller
 	// Usuario con el que deseamos chatear
 	$user_b = $user;
  
-	// Vamos a recuperar la sala de chat del usuario a que tambien tenga al usuario b
+	// Vamos a recuperar la sala de chat del usuario a que también tenga al usuario b
 	$chat = $user_a->chats()->whereHas('users', function ($q) use ($user_b) {
  
 		// Aquí buscamos la relación con el usuario b
@@ -53,4 +53,13 @@ class ChatController extends Controller
 	// Redireccionamos al usuario a la ruta chat.show
 	return redirect()->route('chat.show', $chat);
     }
+
+	public function get_users(Chat $chat) 
+	{
+		$users = $chat->users;
+	
+		return response()->json([
+			'users' => $users
+		]);
+	}
 }
