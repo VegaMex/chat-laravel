@@ -5,6 +5,7 @@ const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const chatWith = get(".chatWith");
 const chatStatus = get(".chatStatus");
 const typing = get(".typing");
+const chatId = window.location.pathname.substr(6);
  
 msgerForm.addEventListener("submit", event => {
  
@@ -54,6 +55,12 @@ function appendMessage(name, img, side, text, date) {
   msgerChat.scrollTop += 500;
 }
  
+Echo.join(`chat.${chatId}`).listen('MessageSent', (e) => {
+    
+  console.log(e);
+
+});
+
 function get(selector, root = document) {
   return root.querySelector(selector);
 }
