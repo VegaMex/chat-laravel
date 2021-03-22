@@ -2,7 +2,7 @@
 <html lang="en" >
 	<head>
 		<meta charset="UTF-8">
-		<title>CodePen - Simple Chat UI</title>
+		<title>Chat</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -26,8 +26,8 @@
 			<div class="msger-chat"></div>
  
 			<form class="msger-inputarea">
-				<input type="text" class="msger-input" oninput="sendTypingEvent()" placeholder="Enter your message...">
-				<button type="submit" class="msger-send-btn">Send</button>
+				<input type="text" class="msger-input" oninput="sendTypingEvent()" placeholder="Escribe tu mensaje...">
+				<button type="submit" class="msger-send-btn">Enviar</button>
 			</form>
  
 		</section>
